@@ -1,3 +1,8 @@
+env:
+        global:
+                secure: "D66gFGBGPeOx4eaHKHOVuV7/i1njBBisZtBqBQ/di0KNbrT7gBlZ5S1kItJW+X1JXaTIaEiXxx0b5KZdQWF+6qxL7BIvbBBZ8mEsqSHnEIg6OJyhk+Q1VYveKLBCVtc8wvmQhvsW3u7f9n9mgk8WUm/wHmo7RUsWesOnwQg7rs9KHPzvhuYtZpQsKuFcYz0u0IhfrZeNysMmjaoyospjd3dEolratLjTbWzMfCjJlro/0P526kPmzzjCCHIQJ3GYurWU6bBTzmJPoexku64q/jaEnEDWHdRFRVltvE9K9PmDZRLcxTxCk0RjQzGdBDN04FqIQKHrnewhnSc8e5wZwq6h4eKs/749xd7tfj8SWI2sLC2hc1VhrVB7xBDlfe8locjetfbBpfSs/9gr4L1D0onwSuIJbT7ksI+rU5zNT1OsQ2ZLKlVMZseEvWGKaaaWV+sRgzaFC7UNtq0814Td5vTzTmcXtaFHOnqPArICJCF6+rO2tBwJCUZOjB8JLHqenA8TH8N6twrutshNzE2BWM0w7XQLQc5Bp2llx+0ZWkMI79tTjz2FXCyyqf1YNjKi4XkVMJN31ny14D++rdT9BqZCDkfNNcoRxMBw/Dz0Y0/2lhmQU1VATklmUeYrVTCgOwivt2H2SYNUTrN8m+eV4h6QZhLfy+0TASMH8ALXBmA="
+                secure: "V2J6CPU6b+kQqrbvICCGw6ovGRrQHMCVard+NDdUT+z4CK/CspusHn9p+QzgmvmDxUacG0QA4i2ueXjt3fN1buH/tEaCVwORYkKdM2kWjNr8b4bcGpS0hwdbXSSOKPq+dZ7oRhMSDWzUoaETzveLdVbFsCMNWRKd3o43H3oEVNogZ7A7l9r0uLTIXS8CjrENYQnk2UpPB02uH7lirkyNnphgldNyEOAv6gvKgEz+LwosUupLbSS8ppaOnJTHeh7jn0CzMyhymkVnUwdz5B0+6aEotLMUuXsQQ4ziY+wSA5dPOGD//1yH+pg8FSjUAspAdVk5vfEDIaau7hrwl5tZcxCdMPLUgNPSTj8FSzl2R62xDkQz00GSLK7cJV/zAPqOdNtFTRh6OXSmLonaZ3g/ePcAwWbAxHp1RAjU1QtZUA7kgMT6r3+0o1Qi00fl/R15/IFfQXdvHMrH9FGblet7ydRIMXO+R20NA/7ngHpe7prGIkHVwUxgot8FxbEvwZtt8SPf53o6D7aMqkJyKT0cQcTcm2fdPjlJxnZmZ/TjO9xCcmhcSqSYBZYsw3eHhqETdKkSY+v6F7rxXNpsf9evt8/hnE2kalw1MRVryM/p9UKgMoYTIxRk9y8Mj0MhwLwHCsW9VnHMOotsFQOdCRgEh2grz+rCop/sBWX3EzdG4rk="
+                secure: "OIpo1DoObHQzFysGyepoIb1w2Pc6DZqQM4OHVzkR3QpVCsRMJLV0xV1oHuKMo71+tXy+AUT8rQdXhnffAZ1pVmBvs0dRK2aS/VX+dGo4emsHhTkGdMbIUm1sAcpiAhYf39vXmlomwn3KRRTfgqXVo4eDsr3BwObf4wlDqsHrbRayCGY+AbLMr39nFutjTbvQBDnLcf89g3ribw0YVVs4ggE4tj6X4hZt9qYRYPrTepQ/kVv9jqa9ND9Htw4Id5+jYNOCuoHtmWxdVde/e/QwOB4+IrJJ40V1g+TvFDwXMEs8qGC5Pbx6pcKBjkp9/N/rfyfKrQ1T0Tclp1uanReseYAQqjiN9BI0k5OmnjGeeRmASji6kKtZljok/dXZSLKPMWNCNc8cNhCr/qCYZRT800j4wTSsLNh9UFLEpVrg46I3SUA5mzrMeFMfOslhLkSuuFlK9srUuF0JYSPujPJU8eaukxpysfBMM7b2ltAb/pOiP6jKiRO1tZRvC1iGH2OLbKQIciznCsszCRqtsqby6x7njICf6VKqyqfz2XR3Pl+FIWUt6gjPdBuh0nr2nWposX7ZK6bya++K/67mq0XK7okHKr8lu4ifv7mE4HYVDLvE63P7n2/srm7EUvPWkrrCtQgUexTVBtSjCrtacg/RX5SxWou1+McgrrwKtOvtfY0="
 sudo: false
 language: node_js
 node_js:
@@ -7,4 +12,6 @@ install:
         - tar -xvf master.tar.gz
         - export PATH=$PATH:$PWD/jemdoc_mathjax-master
 script:
-        - jemdoc *.jemdoc
+        - jemdoc -o build *.jemdoc
+after_success:
+        "curl --ftp-create-dirs -T build/* -u $FTP_USER:$FTP_PASSWORD sftp://$FTP_DIR"
