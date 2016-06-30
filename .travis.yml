@@ -12,6 +12,7 @@ install:
         - tar -xvf master.tar.gz
         - export PATH=$PATH:$PWD/jemdoc_mathjax-master
 script:
+        - mkdir build
         - jemdoc -o build *.jemdoc
 after_success:
         "curl --ftp-create-dirs -T build/* -u $FTP_USER:$FTP_PASSWORD sftp://$FTP_DIR"
