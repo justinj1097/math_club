@@ -21,6 +21,6 @@ before_deploy:
 deploy:
         provider: script
         skip_cleanup: true
-        script: rsync -r build fmoody@access.cims.nyu.edu:/usr/httpd/htdocs_math/math_club/
+        script: rsync -rv build/ fmoody@access.cims.nyu.edu:/usr/httpd/htdocs_math/math_club/
         on:
                 branch: master
