@@ -1,20 +1,22 @@
-env:
-        - secure: "RHFprqlY4NI6vUUgRETqriBa3wft/gn5hbrqdV3viIMxl+gLXaJ+WH6YFcTsIDHf2U6dD3s5suVGQkA59FCilEz6oYBMHw7KecEX1TUTHwL+7OatdljGe6bLXEm/eSAXGDilHgTghVjdysQfPIMXWvO5chZl32djBqw4oXByVJSQJI6puI0AlO8MddHzWblWzKQP4VVE7zUa99LdS0gPBjJVtk7UrXrI6oA3kDwWe1Mq+zls7gCgBkLElYDcPtDWpZJRBzjG5BAw9IoaN1Cdh+RtuYUIhSyCN3o4NDfGmxiWNoXoMSYl3c9zE43FVkPjhi65gzR/8Uj3xQ1BMtNJYetD5XtvoS6wLbh5p5OtKsaCMAICAO+bakhKbHObgO4ZGqEW2X/5wEeRVMYpohsPKT/qvmsRKExDtws+jvov/ekUAZH8LD1zWdgESV2aq4ulTXHciPiheRG/Q3VUJwJ/PuWRbxwMkg/IFMKSyAVae1W7bT0tag/Fk0rwGy9pmtY4geHFVh9xF/B3pGn3B34ok+J9ur6m7Ka6d38/Wxb0L/s8tsTzSifS/EhoCsK/LkxOpHS3DxoqYIYnlpPw0lSun1AZWX0sUJXHjBCU9DqhqlvDR3Pz6FRmbeLsZhPuHQrTyT3w8GbP62NmkdVclkf/aRCHXKcHwZ2eRktUGjeDqPU="
-        - secure: "Df43x8FhjZX0XeDosb20Bqs6eeYcSHMutbwTc8ZrQmU4PVZ1hJaHaOJGvVEl3SStRjcX+Wvm5bzh0M0+2pzxxPfwNscchkoosBMjJn8SKH61T557X2oEqKRnUKDLG330WtLjpzJgz7q/R2FMYQkt1BynyyuIOE1UTmX6PSnF9ct50PD0vSdiVGRVWzKHXKrGCdkORKZ9+dOa+d7hqoLXWe/bnge07bwFAlgiCLCj8TUh/RCGSBtU/99KAWvI1xQuZeKEU7vcp4D9AGDI0zVXEEYP7QM7HtBBajZYXN1O3JuWcW3SNdjq46OTwb02EaIm7c+w4N0J+/NxB/hmWBxx7aQJp1fhIGW22Qh2ovvmKmim7gRiDysuXQWJ7awEoSTYS53o8/8fcBXbH8FVXZJ8o/sU4G1f7nvskoQ8Rcuapl4aiZmmGnWvK3onefYteATZ5hZLQ/geatT60zIyVEinRrg1Urh1mvt3Fg+xtxZULVft5Dz5sIHkbo+gfZUBdfDpkoLcknxFn9ffJh0st22j6dNjPOa1vanqUoQp5jjGAsq0JBunu+oBJ6kJrJlIAqPwMT/zOi0grmxZVE0+7FtWm+zucoKoxbrYO0OkP2wAy0QZJL7uJI7WnVWYFpUZqMASyUplgfCbHvjnaSobpZ9Pb/98snnrEyTuLyM9TZci32E="
-        - secure: "F6GjS6n4e/Bakjyp+avrKCw/4dQZBAgE6/Ks35m8sH6p14g6LUOUFY2RVnoDdNCld2JaiRmRVa7Sgw5ArYccJ22UR8+9m0R1zJkk3ZISg8p7QSpEzZUYdljNhlSdfgrI/xe0vcPh0nPdNFEZIqxC7+jKquKyRHhTHy5R86gfDmpsIn1XP/WNixqYtgKlCTXdyBoof1asJhaT0JjlZ7MSlNVYXMwMdoL1AM9LyXHi7h85xMkowIv93UJXvoQ9TbYhWqiZxVRW3wfGNw6qHqZUlWZsPu6CtJNc+kC8SvN2RtHhPVpHbeXYq88P112vtJNzTOdHbu342DJaK/mUT6VFqLjGifVS89qP7lXe3g4RLCNRO+no5qiVqXgTGdM2+4MupqyMFmsruvA7jPRGycJNecCVzrrJZ819n/25dAYzNK8P5kkOy/OQ/tl6QGHNgEb6/BoyVOhLKkPdiSy/4sokE7VlCBL3HNKpUGOHKl0mufweQtmUMRO8ux4KOSe0RHNpikMMbWXDjT8MqTnXHmKojK6a2MIRHeC7DroDol40DJLQ1/lOX1NTuNEydfKQjqRf7fm+j6ov2oqm+KWb3nLtJE9oAL+yn8UiVaQmxPo0hBPUAlHN6tgX2VeWJbW4rQIkWVZu21Zd+n6jP1GtaJt8WEgQmeS/Qkm24L6E/zmP7bo="
 sudo: false
 language: node_js
 node_js:
-        - "5"
+- '5'
+addons:
+        ssh_known_hosts: access.cims.nyu.edu
+before_install:
+- openssl aes-256-cbc -K $encrypted_757057c4cb2a_key -iv $encrypted_757057c4cb2a_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
 install:
-        - wget https://github.com/wsshin/jemdoc_mathjax/archive/master.tar.gz
-        - tar -xvf master.tar.gz
-        - export PATH=$PATH:$PWD/jemdoc_mathjax-master
-        - openssl aes-256-cbc -K $encrypted_757057c4cb2a_key -iv $encrypted_757057c4cb2a_iv -in travis_key.enc -out travis_key -d
-        - mkdir .ssh
-        - mv travis_key .ssh/travis_key
+- wget https://github.com/wsshin/jemdoc_mathjax/archive/master.tar.gz
+- tar -xvf master.tar.gz
+- export PATH=$PATH:$PWD/jemdoc_mathjax-master
 script:
-        - mkdir build
-        - jemdoc -o build *.jemdoc
+- mkdir build
+- jemdoc -o build *.jemdoc
+before_deploy:
+- eval "$(ssh-agent -s)"
+- chmod 600 deploy_rsa
+- ssh-add deploy_rsa
 after_success:
-        - scp build/* $FTP_USER@$FTP_SERVER:$FTP_DIR
+- rsync -r build fmoody@access.cims.nyu.edu:/usr/httpd/htdocs_math/math_club/
