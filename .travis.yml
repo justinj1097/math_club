@@ -18,5 +18,9 @@ before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 deploy_rsa
 - ssh-add deploy_rsa
-after_success:
-- rsync -r build fmoody@access.cims.nyu.edu:/usr/httpd/htdocs_math/math_club/
+deploy:
+        provider: script
+        skip_cleanup: true
+        script: rsync -r build fmoody@access.cims.nyu.edu:/usr/httpd/htdocs_math/math_club/
+        on:
+                branch: master
