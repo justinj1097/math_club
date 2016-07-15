@@ -12,19 +12,30 @@ up online within a few minutes.
 
 # Setup
 
-To get this working on a new server:
-1. Install the Travis command line tool
-2. Run
-```travis encrypt FTP_USER=user```
-```travis encrypt FTP_PASSWORD=password```
-```travis encrypt FTP_DIR=dir```
-where `user` and `password` are your ftp username and password, respectively, 
-and `dir` is the directory to install the website.
+Perform the following steps on your local machine:
 
-Copy the output of all 3 commands into `.travis.yml`, replacing the existing 
-secure variables.
+1. Install the [Travis client](https://github.com/travis-ci/travis.rb#readme)
+2. Run the following commands
+	a. Generate a new encryption key pair so Travis can securely 
+	communicate with your server
+	```
+	ssh-keygen -t rsa -b 4096 -C '<repo>@travis-ci.org' -f ./deploy_rsa
+	```
+	b. Encrypt the private key with Travis so it can be stored on Github
+	```
+	travis encrypt-file deploy_rsa --add
+	```
+	c. Add the public key to the server (replace <ssh-user> and 
+	<deploy-host>):
+	```
+	ssh-copy-id -i deploy_rsa.pub <ssh-user>@<deploy-host>
+	```
+	d. Delete the key pair just in case
+	```
+	rm -f deploy_rsa deploy_rsa.pub
+	```
 
 # To do
 
-- Finish setup instructions
-- Get deploy working: how to curl the whole build directory?
+- Convert setup instructions to setup script
+- Get rsync to work
