@@ -1,3 +1,3 @@
 <?php
-echo shell_exec("git pull && jemdoc *.jemdoc");
+echo shell_exec("git pull && python jemdoc.py *.jemdoc");
 ?>
