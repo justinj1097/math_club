@@ -2,14 +2,17 @@
 
 Some past and forthcoming talks include: 
 
-10-25-17 TBD -- Yutong Zhao, Schrodinger Research \n 
-10-4-17 TBD -- Prof. Fanny Shum, Courant Institute \n 
-
-9-27-17 "Interactive Machine Learning with Contextual Bandits" -- Alekh Agarwal, Microsoft Research \n
-5-17-17 ""Chains, Pants, and Rings: an introduction to cobordism" -- Tobias Shin, Stony Brook (PhD student) \n
-3-7-17 "Non-Standard Analysis" -- Samarth Tiwari, Courant Institute (Undergrad) \n
-3-23-16 "Simulating passive and active Brownian suspensions" -- Prof. Aleksandar Donev, Courant Institute \n
-3-9-16 "Riemann surfaces: a bridge between analysis, arithmetic and topology" -- Federico Buonerba, Courant Institute (PhD student) \n
-11-17-15 "Curvature Flows" -- Prof. Bruce Kleiner, Courant Institute \n
-3-30-15 "Fair Duels" -- Prof. Sinan Gunturk, Courant Institute \n 
-2-26-15 "Matroids" -- Prof. Dmitry Zakharov, Courant Institute \n
+~~~
+{}{table}{talklist}
+Date  | Talk | Speaker ||
+Oct. 25, 2017 | TBD | Yutong Zhao, Schrodinger Research ||
+Oct. 4, 2017   | TBD | Prof. Fanny Shum, CIMS || 
+Sep. 27, 2017 | Interactive Machine Learning with Contextual Bandits | Alekh Agarwal, Microsoft Research || 
+May 17. 2017 | Chains, Pants, and Rings: An Introduction to Cobordism | Tobias Shin, Stony Brook (PhD student) || 
+Mar. 7, 2017 | Non-Standard Analysis | Samarth Tiwari, CIMS (Undergrad) || 
+Mar. 23, 2016 | Simulating Passive and Active Brownian Suspensions | Prof. Aleksandar Donev, CIMS || 
+Mar. 9, 2016 | Riemann Surfaces: A Bridge between Analysis, Arithmetic, and Topology | Federico Buonerba, CIMS (PhD student) || 
+Nov. 17, 2015 | Curvature Flows | Prof. Bruce Kleiner, CIMS || 
+Mar. 30, 2015 | Fair Duels | Prof. Sinan Gunturk, CIMS ||
+Feb. 26, 2015 | Matroids | Prof. Dmitry Zakharov, CIMS || 
+~~~
