@@ -26,6 +26,8 @@ body {
     vertical-align: top;
 }
 
+#talklist tr.r1 { font-weight: bold; }
+
 #layout-menu td {
 	background: #f4f4f4;
     vertical-align: top;
